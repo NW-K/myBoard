@@ -1,0 +1,20 @@
+<div>
+	<ul>
+		var maxPage = parseInt(i/3); %>
+		var offset = 3; %>
+			for ( var j = 0; j<=maxPage; j++ ){ %>
+			<% if(j <= offset || j > maxPage=offset || (j >= page-(offset-1) && j <= page + (offset-1))){ %>
+				<% if(j != page){ %>
+					<li> [<a href="/posts?page=<%= j %>"><%= j %> </a>] </li> //현제페이지가 아니어서 링크를 줌
+				<% } else { %>
+					<li>[<b> <%= j %> </b>]</li> //현재 링크라서 링크없이 글씨체만 굵게 설정
+				<% } %>
+			<% } else if(i > j + offset//offset+1 || j == maxPage-offset){ %>
+				<li>....</li> //offset 보다 1 크거나 마지막 번호에서 offset 뺀 값이면 번호 대신 ....표시
+			<% } %>
+		<% } %>
+	</ul>
+</div>
+
+var limit = 3;
+var next = 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign In</title></head>
+<!-- 	<script type="text/javascript">
+		window.addEventListener('load', function(){
+			var signin = document.querySelector('#signin');
+
+			signin.addEventListener('click', function(){
+				console.log('서브밋 클릭이벤트')
+				var id = document.querySelector('#id');
+				var password = document.querySelector('#pw');
+				var name = document.querySelector('#name');
+				var nickname = document.querySelector('#nick');
+				var phone = document.querySelector('#phone');
+
+				var regExp = /\s/g;
+				var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+				var pwReg = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/;
+				var nickReg = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,10}$/
+				var phReg2 = /^[0-9]+$/;
+				
+				var foundMatchid = idReg.test(id.value);
+				var foundMatchpw = pwReg.test(pw.value);
+				var foundMatchnick = nickReg.test(nick.value);
+				var foundMatchphone2 = phReg.test(phone2.value);
+				var foundMatchphone3 = phReg.test(phone3.value);
+
+
+				if(!foundMatchid && regExp.test(id.value)){
+					alert('아이디는 공백없이 소문자와 숫자로 이루어진 6-20자여야 합니다');
+					return id.focus();
+				}
+				if(!foundMatchpw){
+					alert('패스워드는 문자,대문자, 숫자, 특수문자의 조합이어야 합니다');
+					return pw.focus();
+				} else if(!regExp.test(id.value)){
+					alert('공백은 입력할 수 없습니다')
+				}
+				if(!foundMatchnick && regExp.test(nick.value)){
+					alert('닉네임은 공백없는 문자의 조합이어야 합니다');
+					return nick.focus();
+				}
+				if(!foundMatchphone2 && regExp.test(phone2.value)){
+					alert('숫자만 입력 가능합니다');
+					return phone2.focus();
+				}
+				if(!foundMatchphone3 && regExp.test(phone2.value)){
+					alert('숫자만 입력 가능합니다');
+					return phone3.focus();
+				}
+			})
+		})
+	</script> -->
+
+<body>
+	<form name="ff" action="/signin" method="post">
+		<table>
+			<!-- id / password / name / nickname / phone -->
+			
+			<tr>
+				<td><label>ID</label></td>
+				<td><input type="text" name="id" id="id" required></td>
+			</tr>
+			<tr>
+				<td><label>Password</label></td>
+				<td><input type="text" name="password" id="pw" required></td>
+			</tr>
+			<tr>
+				<td><label>Name</label></td>
+				<td><input type="text" name="name" id="name" required></td>
+			</tr>
+			<tr>
+				<td><label>Nickname</label></td>
+				<td><input type="text" name="nickname" id="nick" required></td>
+			</tr>
+			<tr>
+				<td><label>Phone</label></td>
+				<td>
+					<input type="text" name="phone" id="phone" required>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" name="submit" value="SIGN IN" id="signin">
+		<input type="reset" name="reset" value="다시입력">
+	</form>
+</body>
+</html>

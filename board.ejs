@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th width="50px">No.</th>
+			<th width="500px">title</th>
+			<th width="100px">writer</th>
+			<th width="100px">date</th>
+		</tr>
+
+			<% for( var i = 0; i< result.length; i++){ %>
+				<% curContent = result[i].content; %>
+				<% curWriter = result[i].writer; %>
+				<% curTitle = result[i].title; %>
+				<% curDate = result[i].date; %>
+				
+				
+		<tr>
+			<td> <%= Number %> </td>
+			<td><a href="/contents/?id= <%=curDate%> "> <%= curTitle %> <a></td>
+			<td><%= curWriter %></td><td><%= curDate %></td>
+		</tr>
+
+
+	</table>
+		<a href="/public/write.html">
+			<input type="submit" value="글쓰기">
+		</a>
+
+
+	<div>
+		<ul style="width: 900px; justify-content:center; list-style: none; text-decoration:none; display:flex; flex-direction: row;">
+			<% if(queryId == 1){ %>
+				<li><< prev...</li>
+			<% } else { %>
+				<li><a href="/board/?page='<%=Number2 %>'"><< prev</a>...</li>
+			<% } %>
+			
+
+			<% for ( j = 1; j <= maxPage; j++ ){ %>
+				<% if(j<=offset || j>maxPage-offset || (j>=queryId-(offset-1) && j<=queryId+(offset-1))){ %>
+					<% if(j != queryId){ %>
+						 <li>[<a href="/board/?page= <%= j %>"> <%= j %></a>]</li>
+					<% } else { %>
+						<li>[<b> <%= j %> </b>]</li>
+					<% } %>
+				<% } else if(j == offset+1 || j == maxPage-offset){ %>
+					<li>...</li>
+				<% } %>
+			<% } %>
+			<% if(queryId == maxPage){ %>
+				<li>...next >></li>
+			<% } else { %>
+				<li>...<a href="/board/?page= <%= Number3 %>"> next >></a></li>
+			<% } %>
+		</ul>
+	</div>
+</body>
+</html>
+
